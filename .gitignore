@@ -1,0 +1,32 @@
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+reports/
+*.iml
+# Playwright specific
+/playwright*
+!.playwright
+!**/tests/**/*.test.js
+
+# Node modules
+node_modules/
+
+# Logs and generated files
+/logs/
+/*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# IntelliJ / VSCode
+.idea/
+.vscode/
