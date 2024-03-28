@@ -2,7 +2,11 @@ import {Given, Then, When} from "@cucumber/cucumber";
 import {page} from '../steps/world';
 import {expect} from "@playwright/test";
 
+
+
+
 Given('I am on {string} page', async  (expectedText) => {
+
     const actuelText = await page.locator(`a[id='nava']`).textContent();
     expect(expectedText).toEqual(actuelText!.trim());
 });
