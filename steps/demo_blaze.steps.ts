@@ -1,5 +1,5 @@
 import {Given, Then, When} from "@cucumber/cucumber";
-import {page} from '../steps/world';
+import {page} from '../config/world';
 import {expect} from "@playwright/test";
 
 

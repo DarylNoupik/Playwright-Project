@@ -1,7 +1,7 @@
 import { Browser, chromium, Page } from "@playwright/test";
 import { After, Before, setDefaultTimeout, Status } from "@cucumber/cucumber";
-import "../config/env";
-import {SignUpPage} from "../pages/SignUpPage";
+import "./env";
+import { SignUpPage } from "../pages/SignUpPage";
 
 //
 let page: Page;
@@ -15,7 +15,6 @@ Before(async () => {
     browser = await chromium.launch({ headless: false });
     const context = await browser.newContext();
     page = await context.newPage();
-
   } catch (error) {
     console.log(`chrome navigation to demo site failed due to ${error}`);
     throw new Error(`chrome navigation to demo site failed due to ${error}`);
