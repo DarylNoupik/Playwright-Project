@@ -22,8 +22,8 @@ export class SignUpPage {
   }
 
   async fillAcountDetails(details: any) {
-    await this.page.locator("#modal_first_name").fill(details.firstName);
-    await this.page.locator("#modal_last_name").fill(details.firstName);
+    await this.page.locator("#modal_first_name").fill(details.firstname);
+    await this.page.locator("#modal_last_name").fill(details.lastname);
   }
 
   async fowardRegister() {

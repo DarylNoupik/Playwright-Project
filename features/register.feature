@@ -7,7 +7,7 @@ Feature:User Registration
   @Success
   Scenario: User Register with valid credentials
     When I fullfilled the form with the informations below
-      | email    | test9@yopmail.com |
+      | email    | test11@yopmail.com |
       | password | W3schools!        |
     And I validate the register form
     And I fill out the form with the following user information

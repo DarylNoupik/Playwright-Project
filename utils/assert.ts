@@ -1,4 +1,4 @@
-import { expect, Page } from "@playwright/test";
+import {ElementHandle, expect, Page} from "@playwright/test";
 
 export default class Assert {
 
@@ -20,6 +20,10 @@ export default class Assert {
     async assertURLContains(title: string) {
         const pageURL = this.page.url();
         expect(pageURL).toContain(title);
+    }
+    async assertElementContains(element: ElementHandle<Element> , text : string){
+        const elementText = await element.innerText();
+        expect(elementText).toContain(text);
     }
 
 }

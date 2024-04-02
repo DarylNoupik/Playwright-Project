@@ -32,7 +32,7 @@ After(async function (Scenario) {
       "image/png"
     );
   }
-  await browser.close();
+  //await browser.close();
 });
 
 export { page, browser };
