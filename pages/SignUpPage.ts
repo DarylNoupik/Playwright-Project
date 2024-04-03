@@ -1,37 +1,52 @@
-import { Page } from "@playwright/test";
+import {Locator, Page} from "@playwright/test";
+import {BasePage} from "./BasePage";
 
-export class SignUpPage {
-  private page: Page;
+export class SignUpPage extends BasePage {
+
+
+
+  // Inputs Locator
+  readonly  emailInput    : Locator;
+  readonly  firstnameInput: Locator;
+  readonly  passwordInput : Locator;
+  readonly  lastnameInput : Locator;
+
+  //Buttons
+  readonly signUpButton   : Locator;
+  readonly continueButton : Locator;
+
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
+    this.emailInput    = page.locator("#modalusername");
+    this.firstnameInput= page.locator("#modal_first_name");
+    this.passwordInput = page.getByLabel("Password");
+    this.lastnameInput = page.locator("#modal_last_name");
+
+    this.signUpButton  = page.getByRole("button", { name: "Sign up for free" });
+    this.continueButton= page
+        .getByRole("button", {
+          name: "Continue",
+          exact: true,
+        });
   }
 
-  async navigate(url: string) {
-    console.log(url);
-    await this.page.goto(url);
-  }
 
   async enterEmailAndPassword(email: string, password: string) {
-    await this.page.locator("#modalusername").fill(email);
-    await this.page.getByLabel("Password").fill(password);
+    await this.emailInput.fill(email);
+    await this.passwordInput.fill(password);
   }
 
   async signUp() {
-    await this.page.getByRole("button", { name: "Sign up for free" }).click();
+    await this.signUpButton.click();
   }
 
   async fillAcountDetails(details: any) {
-    await this.page.locator("#modal_first_name").fill(details.firstname);
-    await this.page.locator("#modal_last_name").fill(details.lastname);
+    await this.firstnameInput.fill(details.firstname);
+    await this.lastnameInput.fill(details.lastname);
   }
 
   async fowardRegister() {
-    await this.page
-      .getByRole("button", {
-        name: "Continue",
-        exact: true,
-      })
-      .click();
+    await this.continueButton.click();
   }
 }

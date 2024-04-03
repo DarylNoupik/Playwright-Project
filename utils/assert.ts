@@ -21,9 +21,6 @@ export default class Assert {
         const pageURL = this.page.url();
         expect(pageURL).toContain(title);
     }
-    async assertElementContains(element: ElementHandle<Element> , text : string){
-        const elementText = await element.innerText();
-        expect(elementText).toContain(text);
-    }
+
 
 }
