@@ -1,0 +1,11 @@
+{
+  "correctCredentials":
+{
+  "email": "john4.doe@example.com",
+  "password": "P@ssword123",
+},
+  "incorrectCredentials": {
+    "email": "john4.doe@example.com",
+    "password": "password123"
+  }
+}

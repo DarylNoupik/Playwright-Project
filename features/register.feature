@@ -22,7 +22,7 @@ Feature:User Registration
       | email   | mot_de_passe |
       | <email> | <password>   |
     And I validate the register form
-    Then I should receive an error message <error_msg>
+    Then I should receive an error message "<error_msg>"
 
     Examples:
       | email           | password | error_msg |

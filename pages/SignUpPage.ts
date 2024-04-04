@@ -15,6 +15,11 @@ export class SignUpPage extends BasePage {
   readonly signUpButton   : Locator;
   readonly continueButton : Locator;
 
+  //errors messages
+
+  readonly emailError    : Locator ;
+  readonly passwordError : Locator ;
+
 
   constructor(page: Page) {
     super(page);
@@ -29,6 +34,9 @@ export class SignUpPage extends BasePage {
           name: "Continue",
           exact: true,
         });
+
+    this.emailError    = page.locator(".EmailInput_email_error__IJxXf");
+    this.passwordError = page.locator(".PasswordInput_invalid__FTGpO")
   }
 
 

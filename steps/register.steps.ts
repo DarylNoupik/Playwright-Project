@@ -36,8 +36,13 @@ Then('I receive an confirmation message', async function () {
 
      await assert.assertTitle(title);
 });
-Then('I should receive an error message io', function () {
-    return '8';
+Then('I should receive an error message {string}', async function (msg:string) {
+    const emailErrorMsg = await assert.haveErrorMsg(signupPage.emailError, msg);
+    const passwordErrorMsg = await assert.haveErrorMsg(signupPage.passwordError, msg);
+
+    if (!emailErrorMsg && !passwordErrorMsg) {
+        throw new Error('Aucun des messages d\'erreur spécifiés n\'a été trouvé.');
+    }
 });
 
 
